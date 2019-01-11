@@ -12,8 +12,13 @@ fn post_index() -> &'static str {
     "Hello, Post!"
 }
 
+#[get("/hello/<name>")]
+fn hello_dynamic(name: String) -> String {
+    format!("Hello, {}", name)
+}
+
 fn main() {
     rocket::ignite()
-    .mount("/", routes![index, post_index])
+    .mount("/", routes![index, post_index, hello_dynamic])
     .launch();
 }
