@@ -7,8 +7,13 @@ fn index() -> &'static str {
     "Hello, world!"
 }
 
+#[post("/")]
+fn post_index() -> &'static str {
+    "Hello, Post!"
+}
+
 fn main() {
     rocket::ignite()
-    .mount("/", routes![index])
+    .mount("/", routes![index, post_index])
     .launch();
 }
