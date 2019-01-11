@@ -2,6 +2,8 @@
 
 #[macro_use] extern crate rocket;
 
+use rocket::http::RawStr;
+
 #[get("/")]
 fn index() -> &'static str {
     "Hello, world!"
@@ -13,8 +15,8 @@ fn post_index() -> &'static str {
 }
 
 #[get("/hello/<name>")]
-fn hello_dynamic(name: String) -> String {
-    format!("Hello, {}", name)
+fn hello_dynamic(name: &RawStr) -> String {
+    format!("Hello, {}", name.as_str())
 }
 
 fn main() {
