@@ -1,0 +1,9 @@
+[package]
+name = "first-api"
+version = "0.1.0"
+authors = ["SundayPlayer <baptiste.vade@sundayplayer.fr>"]
+edition = "2018"
+
+[dependencies]
+rocket = "0.4.0"
+rocket_codegen = "0.4.0"
